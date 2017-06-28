@@ -1,0 +1,120 @@
+<!--<p>
+  header works!
+</p>-->
+<!--login modal-->
+<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">Login</a>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-css">
+          <div class="loginmodal-container">
+          <h1>Login !</h1><br>
+          <form name="myform1"  method="post" action="#" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                            <!--  EMAIL -->
+              <div class="form-group">
+                <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                <div class="col-10">
+                  <input class="form-control input-sm" formControlName="email" type="text" name="email1" placeholder="bootstrap@example.com" id="example-email-input">
+                  <div *ngIf="loginForm.controls['email'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter email !
+                  </div>
+                  <div *ngIf="loginForm.controls['email'].hasError('pattern')" class="alert alert-danger alertt">
+                   Please enter correct email !
+                  </div>
+                </div>
+              </div>
+                            
+                            <!--  PASSWORD -->
+                <div class="form-group">
+                  <label for="password-id">Password</label> 
+                  <input type="password" class="form-control input-sm" formControlName="password" name="password1" id="password-id" placeholder="Password">
+                  <div *ngIf="loginForm.controls['password'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter password !
+                  </div>
+                  <div *ngIf="loginForm.controls['password'].hasError('minlength')" class="alert alert-danger alertt" >
+                    Password must be 8 characters long !
+                  </div>
+                  
+                </div>
+
+                <!--  SUBMIT BUTTON  -->
+                  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+              </form>
+          
+          <div class="login-help">
+          <a href="#" data-toggle="modal" data-target="#register-modal" data-dismiss="modal">Register</a> - <a href="#" onclick="alert('No database ! Try to remember !');">Forgot Password</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--end of login modal-->
+
+<!--register modal-->
+<a href="#" class="btn btn-success" data-toggle="modal" data-target="#register-modal">Register</a>        
+
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-css">
+          <div class="loginmodal-container">
+          <h1>Register Here ! </h1><br>
+            <form name="myform"  method="post" action="#" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                            <!--  EMAIL -->
+              <div class="form-group">
+                <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                <div class="col-10">
+                  <input class="form-control input-sm" #refname type="text" formControlName="email" name="email" placeholder="bootstrap@example.com" id="example-email-input">
+                   <!--<b>{{refname.className}}</b>-->
+                  <div *ngIf="registerForm.controls['email'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter email !
+                  </div>
+                   <div *ngIf="registerForm.controls['email'].hasError('pattern')" class="alert alert-danger alertt">
+                   Please enter correct email !
+                  </div>
+                </div>
+              </div>
+
+              <!-- NAME -->
+               <div class="form-group">
+                <label for="text-id" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                  <input class="form-control input-sm" type="text" formControlName="name" name="name" placeholder="Enter Name" id="text-id">
+                  <div *ngIf="registerForm.controls['name'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter name !
+                  </div>
+                </div>
+               </div>
+
+
+               <!--  PHONE -->
+              <div class="form-group">
+                <label for="phone-id" class="col-2 col-form-label">Telephone</label>
+                <div class="col-10">
+                  <input class="form-control input-sm" type="text" formControlName="contact" name="contact" placeholder="Contact no " id="phone-id">
+                <div *ngIf="registerForm.controls['contact'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter contact information !
+                  </div>
+                  <div *ngIf="registerForm.controls['contact'].hasError('pattern')" class="alert alert-danger alertt">
+                       Please enter 12 digit contact number !
+                  </div>
+                </div>
+              </div>
+
+               <!--  PASSWORD -->
+                <div class="form-group">
+                  <label for="password-id">Password</label> 
+                  <input type="password" class="form-control input-sm" formControlName="password" name="password" id="password-id" placeholder="Password">
+                  <div *ngIf="registerForm.controls['password'].hasError('required')" class="alert alert-danger alertt">
+                        Please enter password !
+                  </div>
+                  <div *ngIf="registerForm.controls['password'].hasError('minlength')" class="alert alert-danger alertt">
+                    Password must be 8 characters long !
+                  </div>
+                </div>
+
+                <!--  SUBMIT BUTTON  -->
+                  <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" >Submit</button>
+                 </form>
+          
+          
+        </div>
+      </div>
+      </div>
+
+<!--end of register modal-->

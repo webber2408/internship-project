@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+ @font-face {
+  font-family: Precious;
+  src: local(Precious), url("/precious/Precious.ttf") format("opentype"); }
+@font-face {
+  font-family: AlegreyaSans-Italic;
+  src: local(AlegreyaSans-Italic), url("/alegreya-sans/AlegreyaSans-Italic.ttf") format("opentype"); }
